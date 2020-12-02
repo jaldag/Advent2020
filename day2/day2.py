@@ -13,7 +13,7 @@ for x in file :
 
 	if password.count(char) >= low and password.count(char) <= high :
 		part1count += 1
-	if password[low-1] == char and password[high-1] != char or password[low-1] != char and password[high-1] == char :
+	if (password[low-1] == char) ^ (password[high-1] == char) :
 		part2count += 1
 
 print "Part 1: " + str(part1count)
