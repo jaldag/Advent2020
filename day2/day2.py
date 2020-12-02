@@ -2,8 +2,7 @@ import re
 
 file = open("data.txt", "r")
 
-part1count = 0
-part2count = 0
+part1count, part2count = 0, 0
 
 for x in file :
 	groups = re.search("^(\d+)-(\d+) (.): (.+)$", x)
