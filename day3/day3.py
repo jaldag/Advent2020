@@ -10,8 +10,7 @@ for x in file :
 	for i in range(len(idx)) :
 		if x[int(idx[i])] == '#' and idx[i] == int(idx[i]):
 			trees[i] += 1
-		idx[i] += incrementor[i]
-		if idx[i] >= len(x) :
-			idx[i] = idx[i] - len(x)
-print trees
-print numpy.prod(trees)
+		idx[i] = (idx[i] + incrementor[i]) % len(x)
+
+print "P1: " + str(trees[1])
+print "P2: " + str(numpy.prod(trees))
