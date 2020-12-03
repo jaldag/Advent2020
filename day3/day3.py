@@ -3,14 +3,14 @@ file = open("data.txt", "r")
 
 idx = [0] * 5
 trees = [0] * 5
-incrementor = [1, 3, 5, 7, .5]
+slope = [1, 3, 5, 7, .5]
 
-for x in file :
-	x = x.strip()
+for line in file :
+	line = line.strip()
 	for i in range(len(idx)) :
-		if x[int(idx[i])] == '#' and idx[i] == int(idx[i]):
+		if line[int(idx[i])] == '#' and idx[i] == int(idx[i]):
 			trees[i] += 1
-		idx[i] = (idx[i] + incrementor[i]) % len(x)
+		idx[i] = (idx[i] + slope[i]) % len(line)
 
 print "P1: " + str(trees[1])
 print "P2: " + str(numpy.prod(trees))
