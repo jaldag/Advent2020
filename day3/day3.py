@@ -13,4 +13,4 @@ for line in file :
 		idx[i] = (idx[i] + slope[i]) % len(line)
 
 print "P1: " + str(trees[1])
-print "P2: " + str(numpy.prod(trees))
+print "P2: " + str(reduce(lambda a, b: a*b, trees))
