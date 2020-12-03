@@ -1,4 +1,3 @@
-import numpy
 file = open("data.txt", "r")
 
 idx = [0] * 5
