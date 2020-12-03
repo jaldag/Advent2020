@@ -1,8 +1,8 @@
 import numpy
 file = open("data.txt", "r")
 
-idx = [0, 0, 0, 0, 0]
-trees = [0, 0, 0, 0, 0]
+idx = [0] * 5
+trees = [0] * 5
 incrementor = [1, 3, 5, 7, .5]
 
 for x in file :
