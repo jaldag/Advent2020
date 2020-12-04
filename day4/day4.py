@@ -3,7 +3,7 @@ import re
 def checkRange(val, length, minimum, maximum) :
 	if val != '' :
 		num = int(val)
-		if len(val) == length and num >= minimum and num <= maximum :
+		if len(val) == length and minimum <= num <= maximum :
 			return True
 	return False
 
@@ -25,6 +25,7 @@ for x in file :
 		partialPassport = Passport()
 	for y in re.findall('(...):([^ ]+)\s', x) :
 		setattr(partialPassport, y[0], y[1])
+passports.append(partialPassport)
 
 count = 0
 countValid = 0
@@ -41,7 +42,7 @@ for passport in passports :
 						if height.group(2) == 'cm' and checkRange(height.group(1), 3, 150, 193) or height.group(2) == 'in' and checkRange(height.group(1), 2, 59, 76) :
 							if re.search('^#[0-9a-f]{6}$', passport.hcl) :
 								if validColors.count(passport.ecl) > 0 :
-									if re.search('^\d\d\d\d\d\d\d\d\d$', passport.pid) :
+									if re.search('^\d{9}$', passport.pid) :
 										countValid += 1
 
 print "P1: " + str(count)
