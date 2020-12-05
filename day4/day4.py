@@ -14,7 +14,7 @@ class Passport :
 		self.__dict__.pop('cid', None)
 		return len(self.__dict__.items()) == 7
 
-file = open("data.txt", "r")
+file = open("data2.txt", "r")
 
 passports = []
 partialPassport = Passport()
