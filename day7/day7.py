@@ -9,7 +9,7 @@ def recurseBags(bags, bag) :
 				p1.add(key)
 				recurseBags(bags, key)
 
-def countGold(bags, bag) :
+def countBags(bags, bag) :
 	count = 1
 	for num, color in bags[bag] :
 		count = count + (int(num) * countGold(bags, color))
@@ -29,4 +29,4 @@ for x in file :
 recurseBags(bags, 'shiny gold')
 
 print "P1: " + str(len(p1))
-print "P2: " + str(countGold(bags, 'shiny gold') - 1) #don't include itself
+print "P2: " + str(countBags(bags, 'shiny gold') - 1) #don't include itself
