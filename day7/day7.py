@@ -12,7 +12,7 @@ def recurseBags(bags, bag) :
 def countBags(bags, bag) :
 	count = 1
 	for num, color in bags[bag] :
-		count = count + (int(num) * countGold(bags, color))
+		count = count + (int(num) * countBags(bags, color))
 	return count
 
 bags = {}
