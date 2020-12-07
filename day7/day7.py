@@ -4,15 +4,15 @@ file = open("data.txt", "r")
 
 def recurseBags(bags, bag) :
 	for key in bags :
-		for vals in bags[key] :
-			if bag == vals[1] :
+		for num, color in bags[key] :
+			if bag == color :
 				p1.add(key)
 				recurseBags(bags, key)
 
 def countGold(bags, bag) :
 	count = 1
-	for vals in bags[bag] :
-		count = count + (int(vals[0]) * countGold(bags, vals[1]))
+	for num, color in bags[bag] :
+		count = count + (int(num) * countGold(bags, color))
 	return count
 
 bags = {}
@@ -21,10 +21,10 @@ p1 = set()
 for x in file :
 	vals = re.search('^(\S+ \S+) bags contain (.*)$', x)
 	key = vals.group(1)
-	values = re.findall('(\d) (\S+ \S+)', vals.group(2))
+	containers = re.findall('(\d) (\S+ \S+)', vals.group(2))
 	bags[key] = set()
-	for value in values :
-		bags[key].add(value)
+	for container in containers :
+		bags[key].add(container)
 
 recurseBags(bags, 'shiny gold')
 
