@@ -35,7 +35,7 @@ for x in range (idx - 1) :
 		for z in range(x, y + 1) :
 			val += int(file[z].strip())
 		if val == p1 :
-			low = 99999999999999
+			low = float('inf')
 			high = 0
 			for v in range(x, y+1) :
 				low = min(low, int(file[v].strip()))
