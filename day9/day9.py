@@ -1,4 +1,3 @@
-#file = open("data.txt", "r").readlines()
 file = [int(l.strip()) for l in open("data.txt")]
 
 preamble = 25
