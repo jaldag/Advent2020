@@ -14,7 +14,7 @@ while True :
 		break
 print "P1: " + str(p1)
 
-for x in range (idx - 1) :
+for x in range(idx - 1) :
 	for y in range(x + 1, idx) :
 		val = sum(file[x:y+1])
 		if val == p1 :
