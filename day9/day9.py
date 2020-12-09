@@ -6,13 +6,9 @@ p1 = 0
 while True :
 	brk = True
 	for x in range(idx - 25, idx - 1) :
-		for y in range(x + 1, idx) :
-			if file[x] + file[y] == file[idx] :
-				idx += 1
-				brk = False
-				break
-		if not brk :
-			break
+		if file[idx] - file[x] in file[x+1:idx] :
+			idx += 1
+			brk = False
 	if brk:
 		p1 = file[idx]
 		break
