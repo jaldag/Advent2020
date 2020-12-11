@@ -21,22 +21,12 @@ while True :
 			if currFile[x][y] == '.' :
 				continue
 			seatsAdjacent = 0
-			if isOccupied(currFile, x, y, 1, 0) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, 1, 1) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, 1, -1) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, 0, 1) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, 0, -1) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, -1, 0) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, -1, 1) :
-				seatsAdjacent += 1
-			if isOccupied(currFile, x, y, -1, -1) :
-				seatsAdjacent += 1
+			for dx in (-1, 0, 1) :
+				for dy in (-1, 0, 1) :
+					if dx == dy == 0 :
+						continue
+					if isOccupied(currFile, x, y, dx, dy) :
+						seatsAdjacent += 1
 			if seatsAdjacent == 0 and currFile[x][y] == 'L' :
 				nextFile[x][y] = '#'
 				changed = True
