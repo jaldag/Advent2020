@@ -11,7 +11,8 @@ def isOccupied(currFile, x, y, deltaX, deltaY) :
 		y += deltaY
 		if currFile[x][y] == '.' : #Uncomment for Part 2, comment for Part 1
 			continue
-		return currFile[x][y] == '#'
+		return 1 if currFile[x][y] == '#' else 0
+	return 0
 
 changed = False
 
@@ -25,8 +26,7 @@ while True :
 				for dy in (-1, 0, 1) :
 					if dx == dy == 0 :
 						continue
-					if isOccupied(currFile, x, y, dx, dy) :
-						seatsAdjacent += 1
+					seatsAdjacent += isOccupied(currFile, x, y, dx, dy)
 			if seatsAdjacent == 0 and currFile[x][y] == 'L' :
 				nextFile[x][y] = '#'
 				changed = True
