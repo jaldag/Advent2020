@@ -40,7 +40,7 @@ for x in file :
 	if x[0:4] == 'mask' :
 		mask = x.split(' = ')[1].strip()
 	else :
-		idx = re.search('\\[(\d*)\\]', x).group(1)
+		idx = re.search('\[(\d*)\]', x).group(1)
 		val = re.search('= (\d*)', x).group(1)
 		mem[idx] = maskedVal(mask, val)
 		for idx2 in p2Indexes(mask, idx) :
